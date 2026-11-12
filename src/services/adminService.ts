@@ -359,7 +359,7 @@ export const adminService = {
         id: 'log-3',
         action: 'PRODUCT_PRICE_UPDATED',
         target_type: 'PRODUCT',
-        target_id: 'p1000000-0000-0000-0000-000000000001',
+        target_id: 'd0000000-0000-0000-0000-000000000001',
         metadata: { old_price: 1990000, new_price: 1890000 },
         created_at: new Date(Date.now() - 24 * 3600000).toISOString(),
         actor_name: 'Nguyễn Văn Admin',

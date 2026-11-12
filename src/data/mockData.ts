@@ -2,7 +2,7 @@ import { Category, Product, Coupon, SiteSettings } from '@/types'
 
 export const INITIAL_CATEGORIES: Category[] = [
   {
-    id: 'c1000000-0000-0000-0000-000000000001',
+    id: 'c0000000-0000-0000-0000-000000000001',
     name: 'Source Code Toàn Diện',
     slug: 'source-code',
     description: 'Source code hoàn chỉnh hệ sinh thái E-commerce, SaaS, Booking, Fintech sẵn sàng triển khai.',
@@ -13,7 +13,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     product_count: 4,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000002',
+    id: 'c0000000-0000-0000-0000-000000000002',
     name: 'Website Templates',
     slug: 'website-templates',
     description: 'Giao diện React, Next.js, Tailwind, Vue siêu tốc độ, chuẩn SEO và tối ưu chuyển đổi.',
@@ -24,7 +24,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     product_count: 2,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000003',
+    id: 'c0000000-0000-0000-0000-000000000003',
     name: 'UI/UX Assets & Kit',
     slug: 'ui-ux-assets',
     description: 'Bộ UI Kit Figma, Design Token, 3D Icon Pack và Wireframe hiện đại cho Designer & Developer.',
@@ -35,7 +35,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     product_count: 2,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000004',
+    id: 'c0000000-0000-0000-0000-000000000004',
     name: 'Developer Tools',
     slug: 'developer-tools',
     description: 'Bộ CLI, thư viện tự động hóa, Microservice boilerplates tối ưu quy trình phát triển.',
@@ -46,7 +46,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     product_count: 2,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000005',
+    id: 'c0000000-0000-0000-0000-000000000005',
     name: 'Bản Quyền & Services',
     slug: 'licenses-digital-services',
     description: 'Mã bản quyền IDE, JetBrains, Windows, Server, Cloud VPS và các dịch vụ bản quyền số chính ngạch.',
@@ -60,8 +60,8 @@ export const INITIAL_CATEGORIES: Category[] = [
 
 export const INITIAL_PRODUCTS: Product[] = [
   {
-    id: 'p1000000-0000-0000-0000-000000000001',
-    category_id: 'c1000000-0000-0000-0000-000000000001',
+    id: 'd0000000-0000-0000-0000-000000000001',
+    category_id: 'c0000000-0000-0000-0000-000000000001',
     name: 'E-Commerce Pro Enterprise (React 19, Supabase, Tailwind, VNPay/MoMo)',
     slug: 'ecommerce-pro-enterprise-react-supabase',
     description: `### Giới thiệu hệ thống E-Commerce Pro Enterprise
@@ -98,8 +98,8 @@ Giải pháp thương mại điện tử trọn gói được kiến trúc chu�
     created_at: new Date(Date.now() - 30 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000002',
-    category_id: 'c1000000-0000-0000-0000-000000000001',
+    id: 'd0000000-0000-0000-0000-000000000002',
+    category_id: 'c0000000-0000-0000-0000-000000000001',
     name: 'NexusSaaS - Multi-Tenant Subscription Platform (Next.js 15, Prisma)',
     slug: 'nexussaas-multi-tenant-platform',
     description: `### Nền tảng SaaS Multi-tenant Đẳng cấp
@@ -136,8 +136,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 25 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000003',
-    category_id: 'c1000000-0000-0000-0000-000000000002',
+    id: 'd0000000-0000-0000-0000-000000000003',
+    category_id: 'c0000000-0000-0000-0000-000000000002',
     name: 'ApexFin - Fintech Banking & Crypto Portfolio Template (React + Vite)',
     slug: 'apexfin-fintech-crypto-dashboard-template',
     description: `Bộ giao diện chuyên sâu cho các ứng dụng ngân hàng số, ví điện tử và theo dõi danh mục đầu tư Web3/Crypto.`,
@@ -167,8 +167,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 40 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000004',
-    category_id: 'c1000000-0000-0000-0000-000000000003',
+    id: 'd0000000-0000-0000-0000-000000000004',
+    category_id: 'c0000000-0000-0000-0000-000000000003',
     name: 'Cosmos Design System & UI Kit 2026 (Figma 1500+ Components)',
     slug: 'cosmos-design-system-figma-ui-kit',
     description: `Design System Figma đồ sộ với hơn 1.500 component Auto-layout v5, Design Tokens đồng bộ mã CSS, bộ biến Variables đổi theme sáng tối 1-click.`,
@@ -198,8 +198,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 60 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000005',
-    category_id: 'c1000000-0000-0000-0000-000000000005',
+    id: 'd0000000-0000-0000-0000-000000000005',
+    category_id: 'c0000000-0000-0000-0000-000000000005',
     name: 'JetBrains All Products Pack - Bản Quyền 1 Năm Kích Hoạt Chính Chủ',
     slug: 'jetbrains-all-products-pack-1-year-license',
     description: `Mã kích hoạt bản quyền trọn bộ công cụ JetBrains 1 năm (IntelliJ IDEA Ultimate, WebStorm, PyCharm Pro, PhpStorm, GoLand, DataGrip, CLion...). Kích hoạt trực tiếp vào tài khoản JetBrains cá nhân.`,
@@ -229,8 +229,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 50 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000006',
-    category_id: 'c1000000-0000-0000-0000-000000000004',
+    id: 'd0000000-0000-0000-0000-000000000006',
+    category_id: 'c0000000-0000-0000-0000-000000000004',
     name: 'OmniScraper AI - Enterprise Web Scraping & Data Pipeline (Python/FastAPI)',
     slug: 'omniscraper-ai-web-scraping-pipeline',
     description: `Bộ mã nguồn thu thập dữ liệu thông minh ứng dụng AI xử lý CAPTCHA, chống chặn IP proxy xoay vòng, tự động bóc tách cấu trúc dữ liệu và đẩy về PostgreSQL/BigQuery/Google Sheets.`,
@@ -260,8 +260,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 15 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000007',
-    category_id: 'c1000000-0000-0000-0000-000000000001',
+    id: 'd0000000-0000-0000-0000-000000000007',
+    category_id: 'c0000000-0000-0000-0000-000000000001',
     name: 'NovaBank - Cross-Platform Mobile Banking (React Native & Expo 52)',
     slug: 'novabank-mobile-banking-react-native-expo',
     description: `Source code ứng dụng mobile ngân hàng số và ví điện tử đa nền tảng iOS & Android. Tích hợp xác thực sinh trắc học FaceID/Vân tay, quét mã QR thanh toán, chuyển khoản và quản lý thẻ tín dụng.`,
@@ -291,8 +291,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 18 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000008',
-    category_id: 'c1000000-0000-0000-0000-000000000005',
+    id: 'd0000000-0000-0000-0000-000000000008',
+    category_id: 'c0000000-0000-0000-0000-000000000005',
     name: 'Cloud VPS NVMe Server Pro (4 vCPU, 8GB RAM, 100GB NVMe) - 6 Tháng',
     slug: 'cloud-vps-nvme-server-pro-6-months',
     description: `Gói máy chủ ảo Cloud VPS cấu hình cao tại Datacenter FPT/Viettel Tier 3, tốc độ mạng 10Gbps trong nước, IP riêng Dedicated, quản trị qua portal hiện đại kèm backup tự động hàng tuần.`,
@@ -322,8 +322,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 12 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000009',
-    category_id: 'c1000000-0000-0000-0000-000000000002',
+    id: 'd0000000-0000-0000-0000-000000000009',
+    category_id: 'c0000000-0000-0000-0000-000000000002',
     name: 'DevCraft - Portfolio & Tech Blog Template (Next.js 15, MDX)',
     slug: 'devcraft-developer-portfolio-blog-template',
     description: `Giao diện Portfolio cá nhân và Blog kỹ thuật chuẩn SEO dành cho Senior Software Engineers, Tech Leads và Designers.`,
@@ -353,8 +353,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 8 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000010',
-    category_id: 'c1000000-0000-0000-0000-000000000003',
+    id: 'd0000000-0000-0000-0000-000000000010',
+    category_id: 'c0000000-0000-0000-0000-000000000003',
     name: 'Cyber3D - Futuristic Tech & Finance 3D Asset Pack (Blender + PNG + GLTF)',
     slug: 'cyber3d-tech-crypto-asset-pack',
     description: `Bộ sưu tập 120+ hình ảnh 3D cao cấp chủ đề công nghệ, blockchain, fintech và server.`,
@@ -384,8 +384,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000011',
-    category_id: 'c1000000-0000-0000-0000-000000000005',
+    id: 'd0000000-0000-0000-0000-000000000011',
+    category_id: 'c0000000-0000-0000-0000-000000000005',
     name: 'Windows 11 Professional Retail - Bản Quyền Vĩnh Viễn Theo Mainboard',
     slug: 'windows-11-pro-retail-permanent-license',
     description: `Mã bản quyền Windows 11 Pro dạng Retail kích hoạt vĩnh viễn, gắn liền vào phần cứng bo mạch chủ (Digital License). Hỗ trợ cài đặt lại Windows không mất bản quyền, update Microsoft liên tục.`,
@@ -415,8 +415,8 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
     created_at: new Date(Date.now() - 70 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000012',
-    category_id: 'c1000000-0000-0000-0000-000000000004',
+    id: 'd0000000-0000-0000-0000-000000000012',
+    category_id: 'c0000000-0000-0000-0000-000000000004',
     name: 'GoMicro - Cloud-Native Microservices Production Starter (Golang, gRPC, K8s)',
     slug: 'gomicro-golang-grpc-microservices-starter',
     description: `Khung kiến trúc Microservice chuẩn doanh nghiệp bằng Golang, giao tiếp nội bộ siêu tốc qua gRPC, API Gateway REST, tích hợp sẵn Prometheus metrics, Jaeger distributed tracing và Helm charts deploy Kubernetes.`,
@@ -449,7 +449,7 @@ NexusSaaS cung cấp kiến trúc hoàn chỉnh để khởi tạo sản phẩm 
 
 export const INITIAL_COUPONS: Coupon[] = [
   {
-    id: 'cp100000-0000-0000-0000-000000000001',
+    id: 'f0000000-0000-0000-0000-000000000001',
     code: 'ECOTDEV10',
     description: 'Giảm ngay 10% cho toàn bộ giỏ hàng',
     discount_type: 'PERCENTAGE',
@@ -463,7 +463,7 @@ export const INITIAL_COUPONS: Coupon[] = [
     is_active: true,
   },
   {
-    id: 'cp100000-0000-0000-0000-000000000002',
+    id: 'f0000000-0000-0000-0000-000000000002',
     code: 'SUPERDEV20',
     description: 'Giảm 20% đơn từ 1.000.000đ dành cho Developer',
     discount_type: 'PERCENTAGE',
@@ -477,7 +477,7 @@ export const INITIAL_COUPONS: Coupon[] = [
     is_active: true,
   },
   {
-    id: 'cp100000-0000-0000-0000-000000000003',
+    id: 'f0000000-0000-0000-0000-000000000003',
     code: 'WELCOME50K',
     description: 'Giảm trực tiếp 50.000đ cho khách hàng mới',
     discount_type: 'FIXED_AMOUNT',

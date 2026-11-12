@@ -1,6 +1,7 @@
 -- ====================================================================
 -- ECOTDEV DIGITAL STORE - ALL-IN-ONE COMPLETE SUPABASE SETUP
 -- (Chạy toàn bộ file này trong Supabase SQL Editor để khởi tạo 100%)
+-- Đã chuẩn hóa UUID 100% hợp lệ theo chuẩn PostgreSQL Hexadecimal (0-9, a-f)
 -- ====================================================================
 
 -- BƯỚC 1: KÍCH HOẠT EXTENSIONS
@@ -394,7 +395,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- RLS Policies (Xóa policy cũ nếu có để tránh trùng lặp)
+-- RLS Policies
 DO $$ BEGIN
     DROP POLICY IF EXISTS "Public profiles are readable" ON public.profiles;
     DROP POLICY IF EXISTS "Anyone can view active categories" ON public.categories;
@@ -460,27 +461,27 @@ CREATE TRIGGER on_auth_user_created
     AFTER INSERT ON auth.users
     FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 
--- BƯỚC 7: NẠP DỮ LIỆU SEED DATA (DANH MỤC & SẢN PHẨM MẪU)
+-- BƯỚC 7: NẠP DỮ LIỆU SEED DATA (DANH MỤC & SẢN PHẨM MẪU VỚI UUID HEX CHUẨN)
 
--- 1. SEED CATEGORIES
+-- 1. SEED CATEGORIES (UUID tiền tố c0000000...)
 INSERT INTO public.categories (id, name, slug, description, image_url, icon_name, sort_order, is_active)
 VALUES
-    ('c1000000-0000-0000-0000-000000000001', 'Source Code Toàn Diện', 'source-code', 'Source code hoàn chỉnh hệ sinh thái E-commerce, SaaS, Booking, Fintech sẵn sàng triển khai.', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80', 'Code2', 1, true),
-    ('c1000000-0000-0000-0000-000000000002', 'Website Templates', 'website-templates', 'Giao diện React, Next.js, Tailwind, Vue siêu tốc độ, chuẩn SEO và tối ưu chuyển đổi.', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80', 'LayoutTemplate', 2, true),
-    ('c1000000-0000-0000-0000-000000000003', 'UI/UX Assets & Design Systems', 'ui-ux-assets', 'Bộ UI Kit Figma, Design Token, 3D Icon Pack và Wireframe hiện đại cho Designer & Developer.', 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&auto=format&fit=crop&q=80', 'Palette', 3, true),
-    ('c1000000-0000-0000-0000-000000000004', 'Developer Tools & Scripts', 'developer-tools', 'Bộ CLI, thư viện tự động hóa, Microservice boilerplates tối ưu quy trình phát triển.', 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=80', 'Terminal', 4, true),
-    ('c1000000-0000-0000-0000-000000000005', 'Bản Quyền & License Keys', 'licenses-digital-services', 'Mã bản quyền IDE, JetBrains, Windows, Server, Cloud VPS và các dịch vụ bản quyền số chính ngạch.', 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80', 'KeyRound', 5, true)
+    ('c0000000-0000-0000-0000-000000000001', 'Source Code Toàn Diện', 'source-code', 'Source code hoàn chỉnh hệ sinh thái E-commerce, SaaS, Booking, Fintech sẵn sàng triển khai.', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80', 'Code2', 1, true),
+    ('c0000000-0000-0000-0000-000000000002', 'Website Templates', 'website-templates', 'Giao diện React, Next.js, Tailwind, Vue siêu tốc độ, chuẩn SEO và tối ưu chuyển đổi.', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80', 'LayoutTemplate', 2, true),
+    ('c0000000-0000-0000-0000-000000000003', 'UI/UX Assets & Design Systems', 'ui-ux-assets', 'Bộ UI Kit Figma, Design Token, 3D Icon Pack và Wireframe hiện đại cho Designer & Developer.', 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&auto=format&fit=crop&q=80', 'Palette', 3, true),
+    ('c0000000-0000-0000-0000-000000000004', 'Developer Tools & Scripts', 'developer-tools', 'Bộ CLI, thư viện tự động hóa, Microservice boilerplates tối ưu quy trình phát triển.', 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=80', 'Terminal', 4, true),
+    ('c0000000-0000-0000-0000-000000000005', 'Bản Quyền & License Keys', 'licenses-digital-services', 'Mã bản quyền IDE, JetBrains, Windows, Server, Cloud VPS và các dịch vụ bản quyền số chính ngạch.', 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80', 'KeyRound', 5, true)
 ON CONFLICT (id) DO NOTHING;
 
--- 2. SEED PRODUCTS (12 Sản phẩm thực tế)
+-- 2. SEED PRODUCTS (UUID tiền tố d0000000... - hoàn toàn hợp lệ trong PostgreSQL)
 INSERT INTO public.products (
     id, category_id, name, slug, description, short_description, price, sale_price, 
     thumbnail, product_type, status, is_featured, version, demo_url, documentation_url, 
     features, tech_stack, license_terms, sales_count, rating_avg, rating_count
 ) VALUES
 (
-    'p1000000-0000-0000-0000-000000000001',
-    'c1000000-0000-0000-0000-000000000001',
+    'd0000000-0000-0000-0000-000000000001',
+    'c0000000-0000-0000-0000-000000000001',
     'E-Commerce Pro Enterprise (React 19, Supabase, Tailwind, Stripe/VNPay)',
     'ecommerce-pro-enterprise-react-supabase',
     'Giải pháp thương mại điện tử trọn gói cho doanh nghiệp. Hỗ trợ đa ngôn ngữ, thanh toán tự động VNPay/MoMo/Stripe, giỏ hàng thời gian thực, quản lý kho tự động và phân quyền Admin RBAC cao cấp.',
@@ -494,8 +495,8 @@ INSERT INTO public.products (
     142, 4.95, 28
 ),
 (
-    'p1000000-0000-0000-0000-000000000002',
-    'c1000000-0000-0000-0000-000000000001',
+    'd0000000-0000-0000-0000-000000000002',
+    'c0000000-0000-0000-0000-000000000001',
     'NexusSaaS - Multi-Tenant Subscription Platform (Next.js 15, Prisma)',
     'nexussaas-multi-tenant-platform',
     'Bộ source code nền tảng SaaS Multi-tenant hoàn chỉnh, hỗ trợ thanh toán định kỳ hàng tháng/năm, phân quyền tổ chức (Workspace & Teams), xác thực SSO và RESTful API webhook.',
@@ -509,8 +510,8 @@ INSERT INTO public.products (
     89, 4.88, 17
 ),
 (
-    'p1000000-0000-0000-0000-000000000003',
-    'c1000000-0000-0000-0000-000000000002',
+    'd0000000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000002',
     'ApexFin - Fintech Banking & Crypto Portfolio Template (React + Vite)',
     'apexfin-fintech-crypto-dashboard-template',
     'Giao diện Dashboard tài chính ngân hàng số và theo dõi danh mục đầu tư tiền mã hóa. Hơn 45 màn hình chuyên biệt với biểu đồ nến TradingView, quản lý giao dịch và lịch sử sao kê.',
@@ -524,8 +525,8 @@ INSERT INTO public.products (
     215, 4.92, 43
 ),
 (
-    'p1000000-0000-0000-0000-000000000004',
-    'c1000000-0000-0000-0000-000000000003',
+    'd0000000-0000-0000-0000-000000000004',
+    'c0000000-0000-0000-0000-000000000003',
     'Cosmos Design System & UI Kit 2026 (Figma 1500+ Components)',
     'cosmos-design-system-figma-ui-kit',
     'Design System Figma đồ sộ với hơn 1.500 component Auto-layout v5, Design Tokens đồng bộ mã CSS, bộ biến Variables đổi theme sáng tối 1-click và 80+ mẫu ứng dụng mẫu sẵn.',
@@ -539,8 +540,8 @@ INSERT INTO public.products (
     380, 5.00, 76
 ),
 (
-    'p1000000-0000-0000-0000-000000000005',
-    'c1000000-0000-0000-0000-000000000005',
+    'd0000000-0000-0000-0000-000000000005',
+    'c0000000-0000-0000-0000-000000000005',
     'JetBrains All Products Pack - Bản Quyền 1 Năm Kích Hoạt Chính Chủ',
     'jetbrains-all-products-pack-1-year-license',
     'Mã kích hoạt bản quyền trọn bộ công cụ JetBrains 1 năm (IntelliJ IDEA Ultimate, WebStorm, PyCharm Pro, PhpStorm, GoLand, DataGrip, CLion...). Kích hoạt trực tiếp vào tài khoản JetBrains chính chủ.',
@@ -554,8 +555,8 @@ INSERT INTO public.products (
     520, 4.98, 112
 ),
 (
-    'p1000000-0000-0000-0000-000000000006',
-    'c1000000-0000-0000-0000-000000000004',
+    'd0000000-0000-0000-0000-000000000006',
+    'c0000000-0000-0000-0000-000000000004',
     'OmniScraper AI - Enterprise Web Scraping & Data Pipeline (Python/FastAPI)',
     'omniscraper-ai-web-scraping-pipeline',
     'Bộ mã nguồn thu thập dữ liệu thông minh ứng dụng AI xử lý CAPTCHA, chống chặn IP proxy xoay vòng, tự động bóc tách cấu trúc dữ liệu và đẩy về PostgreSQL/BigQuery/Google Sheets.',
@@ -569,8 +570,8 @@ INSERT INTO public.products (
     94, 4.86, 14
 ),
 (
-    'p1000000-0000-0000-0000-000000000007',
-    'c1000000-0000-0000-0000-000000000001',
+    'd0000000-0000-0000-0000-000000000007',
+    'c0000000-0000-0000-0000-000000000001',
     'NovaBank - Cross-Platform Mobile Banking (React Native & Expo 52)',
     'novabank-mobile-banking-react-native-expo',
     'Source code ứng dụng mobile ngân hàng số và ví điện tử đa nền tảng iOS & Android. Tích hợp xác thực sinh trắc học FaceID/Vân tay, quét mã QR thanh toán, chuyển khoản và quản lý thẻ tín dụng.',
@@ -584,8 +585,8 @@ INSERT INTO public.products (
     78, 4.91, 19
 ),
 (
-    'p1000000-0000-0000-0000-000000000008',
-    'c1000000-0000-0000-0000-000000000005',
+    'd0000000-0000-0000-0000-000000000008',
+    'c0000000-0000-0000-0000-000000000005',
     'Cloud VPS NVMe Server Pro (4 vCPU, 8GB RAM, 100GB NVMe) - 6 Tháng',
     'cloud-vps-nvme-server-pro-6-months',
     'Gói máy chủ ảo Cloud VPS cấu hình cao tại Datacenter FPT/Viettel Tier 3, tốc độ mạng 10Gbps trong nước, IP riêng Dedicated, quản trị qua portal hiện đại kèm backup tự động hàng tuần.',
@@ -599,8 +600,8 @@ INSERT INTO public.products (
     164, 4.97, 33
 ),
 (
-    'p1000000-0000-0000-0000-000000000009',
-    'c1000000-0000-0000-0000-000000000002',
+    'd0000000-0000-0000-0000-000000000009',
+    'c0000000-0000-0000-0000-000000000002',
     'DevCraft - Portfolio & Tech Blog Template (Next.js 15, MDX)',
     'devcraft-developer-portfolio-blog-template',
     'Giao diện Portfolio cá nhân và Blog kỹ thuật chuẩn SEO dành cho Senior Software Engineers, Tech Leads và Designers.',
@@ -614,8 +615,8 @@ INSERT INTO public.products (
     410, 4.94, 62
 ),
 (
-    'p1000000-0000-0000-0000-000000000010',
-    'c1000000-0000-0000-0000-000000000003',
+    'd0000000-0000-0000-0000-000000000010',
+    'c0000000-0000-0000-0000-000000000003',
     'Cyber3D - Futuristic Tech & Finance 3D Asset Pack (Blender + PNG + GLTF)',
     'cyber3d-tech-crypto-asset-pack',
     'Bộ sưu tập 120+ hình ảnh 3D cao cấp chủ đề công nghệ, blockchain, fintech và server.',
@@ -629,8 +630,8 @@ INSERT INTO public.products (
     195, 4.89, 27
 ),
 (
-    'p1000000-0000-0000-0000-000000000011',
-    'c1000000-0000-0000-0000-000000000005',
+    'd0000000-0000-0000-0000-000000000011',
+    'c0000000-0000-0000-0000-000000000005',
     'Windows 11 Professional Retail - Bản Quyền Vĩnh Viễn Theo Mainboard',
     'windows-11-pro-retail-permanent-license',
     'Mã bản quyền Windows 11 Pro dạng Retail kích hoạt vĩnh viễn, gắn liền vào phần cứng bo mạch chủ (Digital License). Hỗ trợ cài đặt lại Windows không mất bản quyền, update Microsoft liên tục.',
@@ -644,8 +645,8 @@ INSERT INTO public.products (
     890, 4.97, 185
 ),
 (
-    'p1000000-0000-0000-0000-000000000012',
-    'c1000000-0000-0000-0000-000000000004',
+    'd0000000-0000-0000-0000-000000000012',
+    'c0000000-0000-0000-0000-000000000004',
     'GoMicro - Cloud-Native Microservices Production Starter (Golang, gRPC, K8s)',
     'gomicro-golang-grpc-microservices-starter',
     'Khung kiến trúc Microservice chuẩn doanh nghiệp bằng Golang, giao tiếp nội bộ siêu tốc qua gRPC, API Gateway REST, tích hợp sẵn Prometheus metrics, Jaeger distributed tracing và Helm charts deploy Kubernetes.',
@@ -660,20 +661,20 @@ INSERT INTO public.products (
 )
 ON CONFLICT (id) DO NOTHING;
 
--- 3. SEED COUPONS
+-- 3. SEED COUPONS (UUID tiền tố f0000000...)
 INSERT INTO public.coupons (
     id, code, description, discount_type, discount_value, min_order_value, 
     max_discount_amount, max_uses, used_count, per_user_limit, starts_at, expires_at, is_active
 ) VALUES
-    ('cp100000-0000-0000-0000-000000000001', 'ECOTDEV10', 'Giảm ngay 10% cho toàn bộ giỏ hàng', 'PERCENTAGE', 10.00, 200000, 300000, 500, 42, 1, NOW() - INTERVAL '10 days', NOW() + INTERVAL '180 days', true),
-    ('cp100000-0000-0000-0000-000000000002', 'SUPERDEV20', 'Giảm 20% đơn từ 1.000.000đ dành cho Developer', 'PERCENTAGE', 20.00, 1000000, 500000, 200, 18, 1, NOW() - INTERVAL '5 days', NOW() + INTERVAL '90 days', true),
-    ('cp100000-0000-0000-0000-000000000003', 'WELCOME50K', 'Giảm trực tiếp 50.000đ cho khách hàng mới', 'FIXED_AMOUNT', 50000.00, 150000, 50000, 1000, 115, 1, NOW() - INTERVAL '30 days', NOW() + INTERVAL '365 days', true)
+    ('f0000000-0000-0000-0000-000000000001', 'ECOTDEV10', 'Giảm ngay 10% cho toàn bộ giỏ hàng', 'PERCENTAGE', 10.00, 200000, 300000, 500, 42, 1, NOW() - INTERVAL '10 days', NOW() + INTERVAL '180 days', true),
+    ('f0000000-0000-0000-0000-000000000002', 'SUPERDEV20', 'Giảm 20% đơn từ 1.000.000đ dành cho Developer', 'PERCENTAGE', 20.00, 1000000, 500000, 200, 18, 1, NOW() - INTERVAL '5 days', NOW() + INTERVAL '90 days', true),
+    ('f0000000-0000-0000-0000-000000000003', 'WELCOME50K', 'Giảm trực tiếp 50.000đ cho khách hàng mới', 'FIXED_AMOUNT', 50000.00, 150000, 50000, 1000, 115, 1, NOW() - INTERVAL '30 days', NOW() + INTERVAL '365 days', true)
 ON CONFLICT (id) DO NOTHING;
 
--- 4. SEED SITE SETTINGS
+-- 4. SEED SITE SETTINGS (UUID tiền tố b0000000...)
 INSERT INTO public.site_settings (id, setting_key, setting_value, is_public, description)
 VALUES
-    ('s1000000-0000-0000-0000-000000000001', 'general_info', '{
+    ('b0000000-0000-0000-0000-000000000001', 'general_info', '{
         "store_name": "ECOTDEV DIGITAL STORE",
         "tagline": "Sàn Giao Dịch Sản Phẩm Kỹ Thuật Số & Bản Quyền Phần Mềm",
         "hotline": "0988.888.999",
@@ -683,7 +684,7 @@ VALUES
         "logo_url": "/favicon.svg",
         "is_maintenance": false
     }'::jsonb, true, 'Thông tin thương hiệu và liên hệ chung'),
-    ('s1000000-0000-0000-0000-000000000002', 'payment_banking_info', '{
+    ('b0000000-0000-0000-0000-000000000002', 'payment_banking_info', '{
         "bank_name": "Techcombank (Ngân hàng TMCP Kỹ thương Việt Nam)",
         "bank_account_number": "19036888999999",
         "bank_account_name": "CONG TY TNHH CONG NGHE ECOTDEV",
@@ -694,12 +695,12 @@ VALUES
     }'::jsonb, true, 'Thông tin tài khoản ngân hàng và ví điện tử tiếp nhận thanh toán')
 ON CONFLICT (id) DO NOTHING;
 
--- 5. SEED LICENSE KEYS
+-- 5. SEED LICENSE KEYS (UUID tiền tố e0000000...)
 INSERT INTO public.license_keys (id, product_id, encrypted_key, status)
 VALUES
-    ('k1000000-0000-0000-0000-000000000001', 'p1000000-0000-0000-0000-000000000005', 'JB2026-AP-99X8-44A2-KLM9', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000002', 'p1000000-0000-0000-0000-000000000005', 'JB2026-AP-88B1-77Z4-QP21', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000003', 'p1000000-0000-0000-0000-000000000005', 'JB2026-AP-55D9-33C6-XY88', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000004', 'p1000000-0000-0000-0000-000000000011', 'VK7JG-NPHTM-C97JM-9MPGT-3V66T', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000005', 'p1000000-0000-0000-0000-000000000011', 'W269N-WFGWX-YVC9B-4J6C9-T83GX', 'AVAILABLE')
+    ('e0000000-0000-0000-0000-000000000001', 'd0000000-0000-0000-0000-000000000005', 'JB2026-AP-99X8-44A2-KLM9', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000002', 'd0000000-0000-0000-0000-000000000005', 'JB2026-AP-88B1-77Z4-QP21', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000003', 'd0000000-0000-0000-0000-000000000005', 'JB2026-AP-55D9-33C6-XY88', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000004', 'd0000000-0000-0000-0000-000000000011', 'VK7JG-NPHTM-C97JM-9MPGT-3V66T', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000005', 'd0000000-0000-0000-0000-000000000011', 'W269N-WFGWX-YVC9B-4J6C9-T83GX', 'AVAILABLE')
 ON CONFLICT (id) DO NOTHING;

@@ -20,7 +20,7 @@ INSERT INTO public.products (
 ) VALUES
 -- Product 1: E-commerce Fullstack React + Supabase
 (
-    'p1000000-0000-0000-0000-000000000001',
+    'd0000000-0000-0000-0000-000000000001',
     'c1000000-0000-0000-0000-000000000001',
     'E-Commerce Pro Enterprise (React 19, Supabase, Tailwind, Stripe/VNPay)',
     'ecommerce-pro-enterprise-react-supabase',
@@ -37,7 +37,7 @@ INSERT INTO public.products (
 
 -- Product 2: SaaS Multi-tenant Platform
 (
-    'p1000000-0000-0000-0000-000000000002',
+    'd0000000-0000-0000-0000-000000000002',
     'c1000000-0000-0000-0000-000000000001',
     'NexusSaaS - Multi-Tenant Subscription Platform (Next.js 15, Prisma)',
     'nexussaas-multi-tenant-platform',
@@ -54,7 +54,7 @@ INSERT INTO public.products (
 
 -- Product 3: Fintech & Crypto Wallet Dashboard
 (
-    'p1000000-0000-0000-0000-000000000003',
+    'd0000000-0000-0000-0000-000000000003',
     'c1000000-0000-0000-0000-000000000002',
     'ApexFin - Fintech Banking & Crypto Portfolio Template (React + Vite)',
     'apexfin-fintech-crypto-dashboard-template',
@@ -71,7 +71,7 @@ INSERT INTO public.products (
 
 -- Product 4: Figma UI Kit Design System
 (
-    'p1000000-0000-0000-0000-000000000004',
+    'd0000000-0000-0000-0000-000000000004',
     'c1000000-0000-0000-0000-000000000003',
     'Cosmos Design System & UI Kit 2026 (Figma 1500+ Components)',
     'cosmos-design-system-figma-ui-kit',
@@ -88,7 +88,7 @@ INSERT INTO public.products (
 
 -- Product 5: JetBrains All Products Pack License (1 Year)
 (
-    'p1000000-0000-0000-0000-000000000005',
+    'd0000000-0000-0000-0000-000000000005',
     'c1000000-0000-0000-0000-000000000005',
     'JetBrains All Products Pack - Bản Quyền 1 Năm Kích Hoạt Chính Chủ',
     'jetbrains-all-products-pack-1-year-license',
@@ -105,7 +105,7 @@ INSERT INTO public.products (
 
 -- Product 6: Python AI Automation & Scraping Suite
 (
-    'p1000000-0000-0000-0000-000000000006',
+    'd0000000-0000-0000-0000-000000000006',
     'c1000000-0000-0000-0000-000000000004',
     'OmniScraper AI - Enterprise Web Scraping & Data Pipeline (Python/FastAPI)',
     'omniscraper-ai-web-scraping-pipeline',
@@ -122,7 +122,7 @@ INSERT INTO public.products (
 
 -- Product 7: React Native Digital Banking App
 (
-    'p1000000-0000-0000-0000-000000000007',
+    'd0000000-0000-0000-0000-000000000007',
     'c1000000-0000-0000-0000-000000000001',
     'NovaBank - Cross-Platform Mobile Banking (React Native & Expo 52)',
     'novabank-mobile-banking-react-native-expo',
@@ -139,7 +139,7 @@ INSERT INTO public.products (
 
 -- Product 8: Cloud VPS NVMe Server Coupon (6 Months)
 (
-    'p1000000-0000-0000-0000-000000000008',
+    'd0000000-0000-0000-0000-000000000008',
     'c1000000-0000-0000-0000-000000000005',
     'Cloud VPS NVMe Server Pro (4 vCPU, 8GB RAM, 100GB NVMe) - 6 Tháng',
     'cloud-vps-nvme-server-pro-6-months',
@@ -156,7 +156,7 @@ INSERT INTO public.products (
 
 -- Product 9: Modern Portfolio & Blog Next.js 15
 (
-    'p1000000-0000-0000-0000-000000000009',
+    'd0000000-0000-0000-0000-000000000009',
     'c1000000-0000-0000-0000-000000000002',
     'DevCraft - Portfolio & Tech Blog Template (Next.js 15, MDX, Contentful)',
     'devcraft-developer-portfolio-blog-template',
@@ -173,7 +173,7 @@ INSERT INTO public.products (
 
 -- Product 10: 3D Tech & Crypto Asset Pack
 (
-    'p1000000-0000-0000-0000-000000000010',
+    'd0000000-0000-0000-0000-000000000010',
     'c1000000-0000-0000-0000-000000000003',
     'Cyber3D - Futuristic Tech & Finance 3D Asset Pack (Blender + PNG + GLTF)',
     'cyber3d-tech-crypto-asset-pack',
@@ -190,7 +190,7 @@ INSERT INTO public.products (
 
 -- Product 11: Windows 11 Pro Retail License Key
 (
-    'p1000000-0000-0000-0000-000000000011',
+    'd0000000-0000-0000-0000-000000000011',
     'c1000000-0000-0000-0000-000000000005',
     'Windows 11 Professional Retail - Bản Quyền Vĩnh Viễn Theo Mainboard',
     'windows-11-pro-retail-permanent-license',
@@ -207,7 +207,7 @@ INSERT INTO public.products (
 
 -- Product 12: Microservices Boilerplate with Go & gRPC
 (
-    'p1000000-0000-0000-0000-000000000012',
+    'd0000000-0000-0000-0000-000000000012',
     'c1000000-0000-0000-0000-000000000004',
     'GoMicro - Cloud-Native Microservices Production Starter (Golang, gRPC, K8s)',
     'gomicro-golang-grpc-microservices-starter',
@@ -226,26 +226,26 @@ ON CONFLICT (id) DO NOTHING;
 -- 3. SEED DIGITAL ASSETS (Mock links to private storage for download delivery)
 INSERT INTO public.digital_assets (id, product_id, storage_path, file_name, version, file_size)
 VALUES
-    ('a1000000-0000-0000-0000-000000000001', 'p1000000-0000-0000-0000-000000000001', 'packages/ecommerce-pro-v2.4.0.zip', 'ecommerce-pro-v2.4.0.zip', '2.4.0', 48234496),
-    ('a1000000-0000-0000-0000-000000000002', 'p1000000-0000-0000-0000-000000000002', 'packages/nexussaas-v3.1.2.zip', 'nexussaas-v3.1.2.zip', '3.1.2', 62914560),
-    ('a1000000-0000-0000-0000-000000000003', 'p1000000-0000-0000-0000-000000000003', 'packages/apexfin-v1.5.0.zip', 'apexfin-v1.5.0.zip', '1.5.0', 31457280),
-    ('a1000000-0000-0000-0000-000000000004', 'p1000000-0000-0000-0000-000000000004', 'packages/cosmos-figma-kit-v4.zip', 'cosmos-figma-kit-v4.zip', '4.0.0', 104857600),
-    ('a1000000-0000-0000-0000-000000000006', 'p1000000-0000-0000-0000-000000000006', 'packages/omniscraper-v1.8.0.zip', 'omniscraper-v1.8.0.zip', '1.8.0', 18874368),
-    ('a1000000-0000-0000-0000-000000000007', 'p1000000-0000-0000-0000-000000000007', 'packages/novabank-v2.0.1.zip', 'novabank-v2.0.1.zip', '2.0.1', 89128960),
-    ('a1000000-0000-0000-0000-000000000009', 'p1000000-0000-0000-0000-000000000009', 'packages/devcraft-v1.2.0.zip', 'devcraft-v1.2.0.zip', '1.2.0', 20971520),
-    ('a1000000-0000-0000-0000-000000000010', 'p1000000-0000-0000-0000-000000000010', 'packages/cyber3d-assets-v2.1.zip', 'cyber3d-assets-v2.1.zip', '2.1.0', 524288000),
-    ('a1000000-0000-0000-0000-000000000012', 'p1000000-0000-0000-0000-000000000012', 'packages/gomicro-starter-v1.4.zip', 'gomicro-starter-v1.4.zip', '1.4.0', 15728640)
+    ('a0000000-0000-0000-0000-000000000001', 'd0000000-0000-0000-0000-000000000001', 'packages/ecommerce-pro-v2.4.0.zip', 'ecommerce-pro-v2.4.0.zip', '2.4.0', 48234496),
+    ('a0000000-0000-0000-0000-000000000002', 'd0000000-0000-0000-0000-000000000002', 'packages/nexussaas-v3.1.2.zip', 'nexussaas-v3.1.2.zip', '3.1.2', 62914560),
+    ('a0000000-0000-0000-0000-000000000003', 'd0000000-0000-0000-0000-000000000003', 'packages/apexfin-v1.5.0.zip', 'apexfin-v1.5.0.zip', '1.5.0', 31457280),
+    ('a0000000-0000-0000-0000-000000000004', 'd0000000-0000-0000-0000-000000000004', 'packages/cosmos-figma-kit-v4.zip', 'cosmos-figma-kit-v4.zip', '4.0.0', 104857600),
+    ('a0000000-0000-0000-0000-000000000006', 'd0000000-0000-0000-0000-000000000006', 'packages/omniscraper-v1.8.0.zip', 'omniscraper-v1.8.0.zip', '1.8.0', 18874368),
+    ('a0000000-0000-0000-0000-000000000007', 'd0000000-0000-0000-0000-000000000007', 'packages/novabank-v2.0.1.zip', 'novabank-v2.0.1.zip', '2.0.1', 89128960),
+    ('a0000000-0000-0000-0000-000000000009', 'd0000000-0000-0000-0000-000000000009', 'packages/devcraft-v1.2.0.zip', 'devcraft-v1.2.0.zip', '1.2.0', 20971520),
+    ('a0000000-0000-0000-0000-000000000010', 'd0000000-0000-0000-0000-000000000010', 'packages/cyber3d-assets-v2.1.zip', 'cyber3d-assets-v2.1.zip', '2.1.0', 524288000),
+    ('a0000000-0000-0000-0000-000000000012', 'd0000000-0000-0000-0000-000000000012', 'packages/gomicro-starter-v1.4.zip', 'gomicro-starter-v1.4.zip', '1.4.0', 15728640)
 ON CONFLICT (id) DO NOTHING;
 
 -- 4. SEED LICENSE KEYS INVENTORY
 INSERT INTO public.license_keys (id, product_id, encrypted_key, status)
 VALUES
-    ('k1000000-0000-0000-0000-000000000001', 'p1000000-0000-0000-0000-000000000005', 'JB2026-AP-99X8-44A2-KLM9', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000002', 'p1000000-0000-0000-0000-000000000005', 'JB2026-AP-88B1-77Z4-QP21', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000003', 'p1000000-0000-0000-0000-000000000005', 'JB2026-AP-55D9-33C6-XY88', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000004', 'p1000000-0000-0000-0000-000000000011', 'VK7JG-NPHTM-C97JM-9MPGT-3V66T', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000005', 'p1000000-0000-0000-0000-000000000011', 'W269N-WFGWX-YVC9B-4J6C9-T83GX', 'AVAILABLE'),
-    ('k1000000-0000-0000-0000-000000000006', 'p1000000-0000-0000-0000-000000000011', 'MH37W-N47XK-V7XM9-C7227-GCQG9', 'AVAILABLE')
+    ('e0000000-0000-0000-0000-000000000001', 'd0000000-0000-0000-0000-000000000005', 'JB2026-AP-99X8-44A2-KLM9', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000002', 'd0000000-0000-0000-0000-000000000005', 'JB2026-AP-88B1-77Z4-QP21', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000003', 'd0000000-0000-0000-0000-000000000005', 'JB2026-AP-55D9-33C6-XY88', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000004', 'd0000000-0000-0000-0000-000000000011', 'VK7JG-NPHTM-C97JM-9MPGT-3V66T', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000005', 'd0000000-0000-0000-0000-000000000011', 'W269N-WFGWX-YVC9B-4J6C9-T83GX', 'AVAILABLE'),
+    ('e0000000-0000-0000-0000-000000000006', 'd0000000-0000-0000-0000-000000000011', 'MH37W-N47XK-V7XM9-C7227-GCQG9', 'AVAILABLE')
 ON CONFLICT (id) DO NOTHING;
 
 -- 5. SEED COUPONS
@@ -261,7 +261,7 @@ ON CONFLICT (id) DO NOTHING;
 -- 6. SEED SITE SETTINGS
 INSERT INTO public.site_settings (id, setting_key, setting_value, is_public, description)
 VALUES
-    ('s1000000-0000-0000-0000-000000000001', 'general_info', '{
+    ('b0000000-0000-0000-0000-000000000001', 'general_info', '{
         "store_name": "ECOTDEV DIGITAL STORE",
         "tagline": "Sàn Giao Dịch Sản Phẩm Kỹ Thuật Số & Bản Quyền Phần Mềm",
         "hotline": "0988.888.999",
@@ -272,7 +272,7 @@ VALUES
         "is_maintenance": false
     }'::jsonb, true, 'Thông tin thương hiệu và liên hệ chung'),
 
-    ('s1000000-0000-0000-0000-000000000002', 'payment_banking_info', '{
+    ('b0000000-0000-0000-0000-000000000002', 'payment_banking_info', '{
         "bank_name": "Techcombank (Ngân hàng TMCP Kỹ thương Việt Nam)",
         "bank_account_number": "19036888999999",
         "bank_account_name": "CONG TY TNHH CONG NGHE ECOTDEV",
